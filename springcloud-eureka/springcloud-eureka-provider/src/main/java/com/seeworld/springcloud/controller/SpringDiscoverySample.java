@@ -3,25 +3,28 @@ package com.seeworld.springcloud.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-
 /**
  * @PackageName com.seeworld.springcloud.controller
  * @Author xiangxiang
- * @Time 2021-01-04 19:21
+ * @Time 2021-01-05 9:08
  */
 
 @RestController
-public class HelloController {
+public class SpringDiscoverySample {
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
+    public List<ServiceInstance> serviceUrl() {
+        return discoveryClient.getInstances("provider");
+    }
 
-
-    @GetMapping("/")
-    public String home() {
-        return "Hello world";
+    @RequestMapping("/clientList")
+    public List<ServiceInstance> getClientList() {
+        return serviceUrl();
     }
 }

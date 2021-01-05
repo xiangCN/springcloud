@@ -18,10 +18,9 @@ import java.util.List;
 @RestController
 public class HelloController {
 
-
-
     @GetMapping("/")
     public String home() {
         return "Hello world";
     }
+
 }

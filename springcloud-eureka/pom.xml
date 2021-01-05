@@ -14,5 +14,6 @@
     <modules>
         <module>springcloud-eureka-server</module>
         <module>springcloud-eureka-client</module>
+        <module>springcloud-eureka-consumer</module>
     </modules>
 </project>
